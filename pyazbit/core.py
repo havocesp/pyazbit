@@ -46,7 +46,7 @@ class PyAzBit:
         self._headers['API-Signature'] = signature.hexdigest()
         _request_args['headers'] = self._headers
         pprint(_request_args)
-        resp = requests.request(**_request_args)
+        resp = requests.request(**_request_args, timeout=60)
         if resp.ok:
             return resp.json()
         else:
